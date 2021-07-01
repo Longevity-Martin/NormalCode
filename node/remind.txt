@@ -1,0 +1,10 @@
+node：
+
+mongoDB：
+ 原生的CRUD
+mongoose：（借助第三方库）
+mongoose的CRUD
+
+mongoose操作数据库的模块化编码：
+
+原生的基于node搭建的服务器
