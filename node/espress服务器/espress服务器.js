@@ -5,6 +5,10 @@ const express = requirre("express");
 //2.创建服务员---创建app服务对象
 const app = express(); //服务员到位
 
+//禁止服务器返回X-Powered-By
+app.disabled("x-powered-by");
+//或app.disable("x-powered-by");
+
 // 指定端口号，启动服务
 app.listen(3000, (err) => {
     if(!err) console.log("运行成功");
@@ -18,6 +22,8 @@ app.listen(3000, (err) => {
             //key: 请求方式 + URI路劲
             //value：回调函数
     //(3)根据写代码的顺序，如果一级路由重复，先写的路由生效，后写的路由无效(放入一个类似数组的结构)
+    //(4)url中的“meishi”的叫法？ （1）URI  （2）虚拟路径
+    //(5)接口测试工具：postman
 // 根路由
 app.get("/", (request, response) => {
 
@@ -52,6 +58,17 @@ app.get("/meishi/c17", (request, response) => {
      * */ 
     response.send("我是美食页面-火锅页面");//访问localhost:3000/meishi
 })
+
+//参数路由
+app.get("/meishi/:id", (request, response) => {
+    //拿到id
+    console.log(request.params);//{id: 32523523}
+    let {id} = request.params;
+    console.log(`返回id的商家`);
+})
+
+
+
 
 
 //如果想让post请求方式响应:比如form表单

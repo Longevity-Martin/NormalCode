@@ -7,8 +7,8 @@
 //1.1 在node里面引入http模块
 let http = require("http");
 
-//引入一个内置模块，用于解析拿取到的url---key=value&key=value...形式的字符串为js中的对象
-//形如：key=value&key=value...这形式叫做：查询字符串参数（请求地址里携带urlencoded编码形式的参数）
+//引入一个内置模块，用于解析拿取到的url---?key=value&key=value...形式的字符串为js中的对象
+//形如：?key=value&key=value...这形式叫做：查询字符串参数/query参数（请求地址里携带urlencoded编码形式的参数）
 //引入的qs是一个对象，该对象身上有着很多有用的方法，最具代表性的：parse()
 let qs = require("querystring");
 
