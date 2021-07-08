@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        ejs的语法：
+            1.<%%>  里面能写任意的js代码，但不会向浏览器输出任何东西。
+            2.<%-%> (只有它能渲染标签，不转义)能够将后端传递过来对象指定的key所对应value渲染的页面
+            3.<%=%> (转义的标签，该项目用的多)能够将后端传递过来对象指定的key所对应value渲染的页面
+
+     -->
+    <!-- <ul>
+        <li>姓名：欧阳森</li>
+        <li>职业：web前端开发工程师</li>
+    </ul> -->
+
+    <%
+        for(let i = 0; i < arr.length; i++){
+            let item = person[i] %>
+            <ul>
+                <li>姓名：<%=item.name%></li>
+                <li>年龄：<%=item.age%></li>
+            </ul>
+        <% } %>
+</body>
+</html>
