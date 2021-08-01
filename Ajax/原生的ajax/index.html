@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .item{
+            width: 200px;
+            height: 200px;
+            background: #ccc;
+            text-align: center;
+            padding: 10px 10px;
+        }
+        .item li{
+            position: relative;
+            height: 40px;
+            line-height: 40px;
+            color: #000;
+        }
+        .item li div.left{
+            float: left;
+        }
+        .item li div.right{
+            float: right;
+            opacity: 0;
+        }
+        .item li:hover{
+            background: #00daac;
+        }
+        .item li:hover .right{
+            opacity: 1;
+        }
+        .item li .item1{
+            position: absolute;
+            left: 220px;
+            top: -50px;
+            width: 200px;
+        }
+        .item li .item1>li{
+            height: 40px;
+            line-height: 40px;
+            color: #000;
+            border-bottom: 1px solid black;
+        }
+        .item li .item1>li div.left{
+            float: left;
+        }
+        .item li .item1>li div.right{
+            float: right;
+            opacity: 0;
+        }
+        ..item li .item1>li:hover{
+            background: #00daac;
+        }
+        .item li .item1>li:hover .right{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <ul class="item">
+        <li>
+            <div class="left">解决方案</div>
+            <div class="right">&gt;</div>
+        </li>
+        <li>
+            <ul class="item1">
+                <li>
+                    <div class="left">通用解决方案</div>
+                    <div class="right">&gt;</div>
+                </li>
+                <li>
+                    <div class="left">行业解决方案</div>
+                    <div class="right">&gt;</div>
+                </li>
+                <li>
+                    <div class="left">云智大数据和AI</div>
+                    <div class="right">&gt;</div>
+                </li>
+                <li>
+                    <div class="left">区块链解决方案</div>
+                    <div class="right">&gt;</div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <script src="./server.js">
+
+    </script>
+</body>
+</html>

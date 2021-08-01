@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            outline: none;
+        }
+        #btn,.box{
+            margin: 100px 200px;
+        }
+        div{
+            width: 300px;
+            background: green;
+        }
+        div:not(#btn){
+            height: 200px;
+        }
+        #btn{
+            height: 40px;
+            margin-bottom: 0;
+            /* margin-left: 200px; */
+        }
+        .box{
+            margin-top: 0;
+            position: relative;
+        }
+        input{
+            display: block;
+            float: left;
+            width: 60px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 25px;
+            font-weight: bold;
+            white-space: pre;
+            border: 1px red solid;
+            background-color: rosybrown;
+            /* box-sizing: border-box; */
+            /* margin-left: -1px; */
+            /* border-radius: 10px; */
+        }
+        #btn input:nth-child(1){
+            background: green;
+        }
+        .box div{
+            position: absolute;
+            left: 0;
+            top: 0;  
+        }
+    </style>
+</head>
+<body>
+    <div id="btn">
+        <input type="button" value="tab1">
+        <input type="button" value="tab2">
+        <input type="button" value="tab3">
+        <input type="button" value="tab4">
+        <input type="button" value="tab5">
+    </div>
+    <div class="box">
+        <div>盒子1</div>
+        <div style="display: none;">盒子2</div>
+        <div style="display: none;">盒子3</div>
+        <div style="display: none;">盒子4</div>
+        <div style="display: none;">盒子5</div>
+    </div>
+    <script>
+        const btns = document.getElementsByTagName("input");
+        const li = document.querySelectorAll(".box div");
+        Array.from(btns).forEach((item, index) => {
+            // let i = index;
+            item.onclick = function(){
+                Array.from(li).forEach(v => {
+                    v.style.display = "none";
+                }) 
+                li[index].style.display = "block";
+
+                Array.from(btns).forEach(c => {
+                    c.style.backgroundColor = "rosybrown";
+                })    
+                item.style.backgroundColor = "green";
+            }
+        })
+        console.log([1, 2, 3].toString());
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*
+        let num = Math.random()*500;
+        const arr = [];
+        for(let i = num; i >= 10; i--){
+            arr.push(i); 
+        } 
+        const arr1 = [];
+        for(let j = 0; j < arr.length; j++){
+                arr[j]+="";
+            if(Array.of(arr[j]).reverse().join(" ") === arr[j]){
+                arr1.push(arr[j]);
+            }
+        }
+        console.log(arr1);
+        
+        */
+    </script>
+</body>
+</html>
