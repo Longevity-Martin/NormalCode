@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>取消上一次请求</title>
+</head>
+<body>
+    <h1>取消上一次请求例子</h1>
+    <input type="submit" value="获取验证码" >
+    <p></p>
+    <script>
+        const btn = document.querySelector("input");
+        const p = document.getElementsByTagName("p")[0];
+
+        
+        let lastXhr = null;
+
+
+        btn.addEventListener("click", function(){
+            console.log(1);
+            this.disabled = true;
+            let num = 60;
+            let timer = setInterval(() => {
+                if(num === 0){
+                    this.value = `获取验证码`;
+                    clearInterval(timer);
+                    return;
+                }
+                this.value = `获取验证码${num--}`;
+            }, 1000)
+
+            if(lastXhr){
+                lastXhr.abort();
+            }
+            lastXhr = getCode(); 
+        })
+
+
+
+        function getCode(){
+            const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === 4 && xhr.status === 200){
+                    p.innerText = xhr.response;
+                }
+            }
+            xhr.open("get", "http://localhost:3000/ahurcode?name=oys&age=18");
+            xhr.send();
+            return xhr;
+        }
+    </script>
+</body>
+</html>

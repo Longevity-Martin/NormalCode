@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 原生的前端代码 -->
+    <input type="button" value="点我向服务器发送跨域请求--jsonp">
+
+    <script>
+        const btn = document.querySelector("input");
+
+
+
+        btn.onclick = function(){
+            window.demo = function(result){
+                console.log(result);
+            }
+
+            const scriptNode = document.createElement("script");
+
+            scriptNode.setAttribute("src", "http://localhost:3000/test?callback=demo");
+
+            document.body.appendChild(scriptNode);
+
+
+        }
+    </script>
+</body>
+</html>
